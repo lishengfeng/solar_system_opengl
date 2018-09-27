@@ -5,3 +5,4 @@ find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 
 add_subdirectory(src/hw1/q1)
+add_subdirectory(src/hw1/q2)

@@ -1,0 +1,26 @@
+Question 3: Suppose that you have the color red already in the color buffer. This is the destination color. If
+something is drawn over this with the color green and an alpha (As) of 0.6. Compute the final color after
+applying the following blending function combination and using the default additive blending equation:
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+What would be the final color values if you use min and max modes (GL_MIN and GL_MAX) for the
+blending equation?
+
+The default Blending mode is GL_FUNC_ADD
+1.
+R = 0 * 0.6 + 1 * (1-0.6) = 0.4
+G = 1 * 0.6 + 0 * 0.4 = 0.6
+B = 0
+A = 0.6
+
+2. GL_MIN
+R = 0
+G = 0
+B = 0
+A = 0
+
+3. GL_MAX
+R = 0.4
+G = 0.6
+B = 0
+A = 0.6
+

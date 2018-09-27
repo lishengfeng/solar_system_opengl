@@ -106,10 +106,15 @@ void display(void) {
     // The Sun
     glPushMatrix();
     glRotatef(angle, 0.0f, 1.0f, 0.0f);
-    changeColour(1.0, 1.0, 0.0, 0.5);
+    changeColour(1.0, 1.0, 0.0, 0.8);
+    glEnable(GL_BLEND);
+    glDepthMask(GL_FALSE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     GLUquadric *sun;
     sun = gluNewQuadric();
     gluSphere(sun,sunRadius,100,100);
+    glDepthMask(GL_TRUE);
+    glDisable(GL_BLEND);
     //glutWireSphere(200, 30, 30);
     glPopMatrix();
 
@@ -117,7 +122,10 @@ void display(void) {
     glPushMatrix();
     glRotatef(earthAngle, 0.0f, 1.0f, 0.0f);
     glTranslatef(earthOrbitRadius,0.0, 0.0);
-    changeColour(0.0, 0.007, 0.686, 0.5);
+    changeColour(0.0, 0.007, 0.686, 0.6);
+    glEnable(GL_BLEND);
+    glDepthMask(GL_FALSE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     GLUquadric *Earth;
     Earth = gluNewQuadric();
     gluSphere(Earth,earthRadius,100,100);
@@ -126,10 +134,12 @@ void display(void) {
     //Earth Moon
     glRotatef(5*earthAngle, 0.0f, 1.0f, 0.0f);
     glTranslatef(earthMoonOrbitRadius,0.0, 0.0);
-    changeColour(0.7, 0.7, 0.7, 0.0);
+    changeColour(0.7, 0.7, 0.7, 1.0);
     GLUquadric *EarthMoon;
     EarthMoon = gluNewQuadric();
     gluSphere(EarthMoon,earthMoonRadius,100,100);
+    glDepthMask(GL_TRUE);
+    glDisable(GL_BLEND);
     glPopMatrix();
 
 //    glPushMatrix();
@@ -141,9 +151,12 @@ void display(void) {
 
     // Mars
     glPushMatrix();
+    glEnable(GL_BLEND);
+    glDepthMask(GL_FALSE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     glRotatef(marsAngle, 0.0f, 1.0f, 0.0f);
     glTranslatef(marsOrbitRadius,0.0, 0.0);
-    changeColour(170/255.0, 60/255.0, 5/255.0, 0.5);
+    changeColour(170/255.0, 60/255.0, 5/255.0, 0.6);
     GLUquadric *Mars;
     Mars = gluNewQuadric();
     gluSphere(Mars,marsRadius,100,100);
@@ -152,10 +165,12 @@ void display(void) {
     //Mars Moon1
     glRotatef(5*marsAngle, 0.0f, 1.0f, 0.0f);
     glTranslatef(marsMoonOrbit1Radius,0.0, 0.0);
-    changeColour(0.7, 0.7, 0.7, 0.0);
+    changeColour(0.7, 0.7, 0.7, 1.0);
     GLUquadric *MarsMoon1;
     MarsMoon1 = gluNewQuadric();
     gluSphere(MarsMoon1,marsMoon1Radius,100,100);
+    glDepthMask(GL_TRUE);
+    glDisable(GL_BLEND);
     glPopMatrix();
 
     glPushMatrix();
